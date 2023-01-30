@@ -57,15 +57,15 @@ import bodyParser from 'body-parser';
 const app = express();
 
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.use(bodyParser());
 app.use(express.json());
 
-app.use('/', (req, res) => res.send('HI'));
 app.use('/api', videos_routes);
 app.use('/api', posts_routes);
 app.use('/api', followers_routes);
 app.use('/api', service_routes);
+app.use('/', (req, res) => res.send('HI'));
 // app.use('/payment', payment_routes);
 // app.use('/user', user_routes);
 app.listen(PORT, () => {
