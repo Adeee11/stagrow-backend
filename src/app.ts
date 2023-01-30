@@ -47,11 +47,12 @@ import videos_routes from './routes/videos';
 import followers_routes from './routes/followers';
 // import user_routes from './routes/user';
 import service_routes from './routes/services';
-import payment_routes from './routes/checkout';
+// import payment_routes from './routes/checkout';
 // import {getDatabase} from './database';
 import cors from 'cors';
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
+// const { createProxyMiddleware } = require('http-proxy-middleware');
+// const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -60,6 +61,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser());
 app.use(express.json());
 
+app.use('/', (req, res) => res.send('HI'));
 app.use('/api', videos_routes);
 app.use('/api', posts_routes);
 app.use('/api', followers_routes);
